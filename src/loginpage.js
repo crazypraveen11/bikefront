@@ -26,8 +26,7 @@ export let Loginpage = () => {
     }
 
     var Register = () => {
-        alert("Login Successfull...!" +
-            JSON.stringify(loginuser))
+        alert("Login Successfull...!" + JSON.stringify(loginuser))
         setNextpage(true)
     }
     return (
@@ -41,10 +40,10 @@ export let Loginpage = () => {
                                 <NavbarToggle></NavbarToggle>
                                 <NavbarCollapse>
                                     <Nav>
-                                        <NavLink href='#!'>Bike Details</NavLink>
+                                        <NavLink href='viewbikedata'>Bike Details</NavLink>
                                         <NavDropdown title='Customer Details'>
                                             <NavDropdown.Item href='gotocustomer'>New Customer</NavDropdown.Item>
-                                            <NavDropdown.Item href='#!'>Listall Customer</NavDropdown.Item>
+                                            <NavDropdown.Item href='viewcustomer'>Listall Customer</NavDropdown.Item>
                                         </NavDropdown>
                                     </Nav>
                                     <Nav className='ms-auto d-flex align-items-center'>
