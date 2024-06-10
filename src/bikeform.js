@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import { useState } from 'react'
+import { Createnewbike } from './connect'
 
 export var Bikeformdesign = () => {
     var [bikedata, setBikedata] = useState(
@@ -29,8 +30,10 @@ export var Bikeformdesign = () => {
         })
     }
 
-    let Submit = () => {
+    let Submit = async () => {
         alert("Details Submitted Successfully...!" + JSON.stringify(bikedata));
+        const temp = await Createnewbike(bikedata);
+        window.location.assign("/")
     }
 
     return (
@@ -96,7 +99,7 @@ export var Bikeformdesign = () => {
                             </div>
                             <div className='form-group mt-3 col-9'>
                                 <label className='form-label fw-bold'>Password</label>
-                                <input type='password' name="password" value={bikedata.password}
+                                <input type='text' name="password" value={bikedata.password}
                                     className='form-control ms-5' onChange={setter}
                                     placeholder='Enter Your Password' />
                             </div>
@@ -104,7 +107,7 @@ export var Bikeformdesign = () => {
                                 <button className='col-3 ms-3 btn btn-info'
                                     onClick={
                                         Submit
-                                    }><a href='/' style={{ textDecoration: 'none' }}>Submit</a></button>
+                                    }>Submit</button>
                             </div>
                         </div>
                     </div>

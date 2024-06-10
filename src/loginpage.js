@@ -27,7 +27,7 @@ export let Loginpage = () => {
     }
 
     var Register = async () => {
-        alert("Login Successfull...!" + JSON.stringify(loginuser))
+        // alert("Login Successfull...!" + JSON.stringify(loginuser))
         await Loginprocess(loginuser)
     }
     return (
@@ -64,7 +64,7 @@ export let Loginpage = () => {
                                         }>
                                             Login</button>
                                         <div class="register-link">
-                                            <p>Don't have an account? <a href="#!" className='ms-2' style={{ textDecoration: 'none' }}
+                                            <p>Don't have an account? <a  className='ms-2' style={{ textDecoration: 'none' }}
                                                 onClick={
                                                     () => {
                                                         setCreatepage(true)

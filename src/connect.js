@@ -23,6 +23,12 @@ export let Loginprocess= async (object) =>{
     } catch (er) {
         alert(er)
     }
+}
 
 
+export const Createnewbike = async (obj) => 
+{
+    const t = await axios.post(`http://localhost:8081/indianbank/addbikes`,obj)
+
+    return t;
 }
