@@ -86,7 +86,7 @@ export let Customerform = () => {
                   className='form-control ms-5' placeholder='Transaction Date' onChange={setter} />
               </div>
               <div className=' text-center mt-4 col-10 '>
-                <button className='col-3 ms-3 btn btn-info' onClick={Submit}><a href='/'>SUBMIT</a></button>
+                <button className='col-3 ms-3 btn btn-info' onClick={Submit}><a href='/' style={{ textDecoration: 'none' }}>SUBMIT</a></button>
               </div>
             </div>
           </div>

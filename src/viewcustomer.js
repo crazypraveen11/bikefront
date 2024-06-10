@@ -5,7 +5,7 @@ export var Viewcustomer = () => {
 
     return (
         <>
-            <div className=" mt-2" style={{ width: '1340px' }}>
+            <div className="container-fluid mt-2">
                 <div className="row justify-content-center align-items-center">
                     <div className="table-responsive-md " style={{ overflowX: 'auto' }}>
                         <table className=" table text-center table-striped table-primary">
