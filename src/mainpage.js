@@ -6,9 +6,9 @@ import { Button, Nav, NavDropdown, NavLink, Navbar, NavbarBrand, NavbarCollapse,
 export let Homepage = () => {
     return (
         <>
-            <Navbar className='container-fluid' expand='lg' variant='dark' bg='dark' >
+            <Navbar className='container-fluid mt-2' expand='lg' variant='dark' bg='dark' style={{width:'1350px'}}>
                 <div className='container'>
-                    <NavbarBrand className='fw-bold'>Profile</NavbarBrand>
+                    <NavbarBrand className='fw-bold'>Ps Bike Showroom</NavbarBrand>
                     <NavbarToggle></NavbarToggle>
                     <NavbarCollapse>
                         <Nav>

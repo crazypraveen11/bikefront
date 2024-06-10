@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export let Loginprocess= async (object) =>{
+export let Loginprocess = async (object) => {
     try {
 
         const twovalues = object.bikeBrand + ":" + object.password;
@@ -15,20 +15,31 @@ export let Loginprocess= async (object) =>{
             }
         )
 
-        if(temp){
-            sessionStorage.setItem("bikesecurity",object.bikeBrand);
-            sessionStorage.setItem("loginuser",totalvalue);
+        if (temp) {
+            sessionStorage.setItem("bikesecurity", object.bikeBrand);
+            sessionStorage.setItem("loginuser", totalvalue);
         }
-        
+
     } catch (er) {
         alert(er)
     }
 }
 
 
-export const Createnewbike = async (obj) => 
-{
-    const t = await axios.post(`http://localhost:8081/indianbank/addbikes`,obj)
+export const Createnewbike = async (obj) => {
+    const t = await axios.post(`http://localhost:8081/indianbank/addbikes`, obj)
+
+    return t;
+}
+
+export const Findbyonebrand = async () => {
+    const t = await axios.get(`http://localhost:8081/indianbank/${sessionStorage.getItem('bikesecurity')}`,
+        {
+            headers:
+            {
+                "Authorization": `Basic ${sessionStorage.getItem('loginuser')}`
+            }
+        });
 
     return t;
 }

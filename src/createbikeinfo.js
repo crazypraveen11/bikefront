@@ -1,7 +1,33 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import { useEffect, useState } from 'react'
+import { Findbyonebrand } from './connect'
 
 export var Createbikedata = () => {
+
+    var [bikedata, setBikedata] = useState(
+        {
+            bikeChasisno: "",
+            bikeBrand: "",
+            bikeModel: "",
+            bikePrice: 0,
+            bikeCc: "",
+            bikeVersion: "",
+            bikeWeight: "",
+            bikeMileage: "",
+            bikeBrakesystem: "",
+            password: ""
+        }
+    )
+
+    const setvalues = async () =>{
+        const t = await Findbyonebrand();
+        setBikedata(t.data);
+    }
+
+    useEffect(()=>{
+        setvalues();
+    })
 
     return (
         <>
@@ -9,7 +35,7 @@ export var Createbikedata = () => {
                 <div className="row justify-content-center align-items-center">
                     <div className="table-responsive-md " style={{ overflowX: 'auto' }}>
                         <table className=" table text-center table-striped table-primary">
-                            <thead id="texting">
+                            <thead>
                                 <tr>
                                     <th>BikeChasisno</th>
                                     <th>Bike Brand</th>
@@ -25,16 +51,16 @@ export var Createbikedata = () => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>5432198765412</td>
-                                    <td>YAMAHA</td>
-                                    <td>R15</td>
-                                    <td>150000</td>
-                                    <td>200CC</td>
-                                    <td>2023</td>
-                                    <td>100Kg</td>
-                                    <td>55Kmpl</td>
-                                    <td>ABS</td>
-                                    <td>@R15</td>
+                                    <td>{bikedata.bikeChasisno}</td>
+                                    <td>{bikedata.bikeBrand}</td>
+                                    <td>{bikedata.bikeModel}</td>
+                                    <td>{bikedata.bikePrice}</td>
+                                    <td>{bikedata.bikeCc}</td>
+                                    <td>{bikedata.bikeVersion}</td>
+                                    <td>{bikedata.bikeWeight}</td>
+                                    <td>{bikedata.bikeMileage}</td>
+                                    <td>{bikedata.bikeBrakesystem}</td>
+                                    <td>{bikedata.password}</td>
                                 </tr>
                             </tbody>
                         </table>
