@@ -27,7 +27,7 @@ export var Createbikedata = () => {
 
     useEffect(()=>{
         setvalues();
-    })
+    },[]) 
 
     return (
         <>
