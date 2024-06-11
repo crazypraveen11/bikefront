@@ -43,3 +43,26 @@ export const Findbyonebrand = async () => {
 
     return t;
 }
+
+export const Createcustomerdetails = async (obj) =>{
+    const t = await axios.post(`http://localhost:8081/indianbank/createcustomer`,obj,
+        {
+            headers:
+            {
+                "Authorization": `Basic ${sessionStorage.getItem('loginuser')}`
+            }
+        }
+    )
+}
+
+export const Listallcustomerdetails = async () =>{
+    const t = await axios.get(`http://localhost:8081/indianbank/listallcustomer`,
+        {
+            headers:
+            {
+                "Authorization": `Basic ${sessionStorage.getItem('loginuser')}`
+            } 
+        }
+    )
+    return t;
+}
