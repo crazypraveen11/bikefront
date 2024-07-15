@@ -34,7 +34,7 @@ export var Viewcustomer = () => {
     const mycustomerdetails = async () =>{
         const t = await Listallcustomerdetails(bikedata.bikeBrand);
         setAllcustomer(t.data);
-        alert(JSON.stringify(t.data));
+        // alert(JSON.stringify(t.data));
     }
 
     return (

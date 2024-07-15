@@ -44,8 +44,8 @@ export const Findbyonebrand = async () => {
     return t;
 }
 
-export const Createcustomerdetails = async (obj) =>{
-    const t = await axios.post(`http://localhost:8081/indianbank/createcustomer`,obj,
+export const Createcustomerdetails = async (obj) => {
+    const t = await axios.post(`http://localhost:8081/indianbank/createcustomer`, obj,
         {
             headers:
             {
@@ -55,13 +55,25 @@ export const Createcustomerdetails = async (obj) =>{
     )
 }
 
-export const Listallcustomerdetails = async () =>{
+export const Listallcustomerdetails = async () => {
     const t = await axios.get(`http://localhost:8081/indianbank/listallcustomer`,
         {
             headers:
             {
                 "Authorization": `Basic ${sessionStorage.getItem('loginuser')}`
-            } 
+            }
+        }
+    )
+    return t;
+}
+
+export const DeleteoneBike = async (brand) => {
+    const t = await axios.delete(`http://localhost:8081/indianbank/deletebybrand/${brand}`,
+        {
+            headers:
+            {
+                "Authorization": `Basic ${sessionStorage.getItem('loginuser')}`
+            }
         }
     )
     return t;

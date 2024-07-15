@@ -1,9 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import { useState } from 'react'
-import { Createnewbike } from './connect'
+import { useEffect, useState } from 'react'
+import { Createnewbike, Findbyonebrand } from './connect'
 
-export var Bikeformdesign = () => {
+export var Updatebike = () => {
     var [bikedata, setBikedata] = useState(
         {
             bikeChasisno: "",
@@ -19,6 +19,16 @@ export var Bikeformdesign = () => {
         }
     )
 
+    const gettingvalues = async () =>
+    {
+        const t = await Findbyonebrand();
+        setBikedata(t.data);
+    }
+
+    useEffect(()=>{
+        gettingvalues();
+    },[])
+
     let setter = (get) => {
         const { name, value } = get.target
 
@@ -30,9 +40,13 @@ export var Bikeformdesign = () => {
         })
     }
 
-    let Submit = async () => {
-        alert("Details Created Successfully...!" + JSON.stringify(bikedata));
+    let Update = async () => {
+        alert("Details Updated Successfully...!" + JSON.stringify(bikedata));
         const temp = await Createnewbike(bikedata);
+        const twovalues = bikedata.bikeBrand + ":" + bikedata.password;
+        const totalvalue = btoa(twovalues);
+        sessionStorage.setItem("bikesecurity", bikedata.bikeBrand);
+        sessionStorage.setItem("loginuser", totalvalue);
         window.location.assign("/")
     }
 
@@ -41,7 +55,7 @@ export var Bikeformdesign = () => {
             <div className='container-fluid mt-2' style={{ width: '900px', color: 'white' }}>
                 <div className='row justify-content-center'>
                     <div className=' col-lg-8 col-md-0 col-sm-12 shadow-lg p-2'>
-                        <h1 className='text-center'>Create Your Bike Details</h1>
+                        <h1 className='text-center'>Edit Your Bike Details</h1>
                         <div className='container'>
                             <div className='form-group mt-4 col-9 '>
                                 <label className='form-label fw-bold'>Bike Chasis No</label>
@@ -106,8 +120,8 @@ export var Bikeformdesign = () => {
                             <div className=' text-center mt-4 col-10 '>
                                 <button className='col-3 ms-3 btn btn-info'
                                     onClick={
-                                        Submit
-                                    }>Submit</button>
+                                        Update
+                                    }>Update</button>
                             </div>
                         </div>
                     </div>

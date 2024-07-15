@@ -9,6 +9,7 @@ import { Customerform } from './customerform'
 import { Viewcustomer } from './viewcustomer'
 import { Createbikedata } from './createbikeinfo'
 import { Homepage } from './mainpage';
+import { Updatebike } from './updatebikeinfo';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
                 <Route path='gotocustomer' exact element={< Customerform />} />
                 <Route path='viewcustomer' exact element={< Viewcustomer />} />
                 <Route path='viewbikedata' exact element={< Createbikedata />} />
+                <Route path='updateinfo' exact element={< Updatebike />} />
               </Routes>
             </BrowserRouter>
           </>
